@@ -49,7 +49,7 @@ The main types of data used in training are _structured_ and _unstructured_ data
 
 - **Structured data:**
   - Data that is _organized_ and well _formatted_, typically in the form of _tables_ or _databases_ with **rows** and **columns**.
-  - This type of data is _suitable_ for **traditional machine learning algorithms** that **require** well-defined [features](#features) and [labels](#labels).
+  - This type of data is _suitable_ for **traditional machine learning algorithms** that **require** well-defined [features and labels](#features-and-lables).
   - The following are types of structured data.
     - **Tabular data**: Data stored in spreadsheets, databases, or CSV files, with rows representing instances and columns representing features or attributes.
     - **Time-series data**: Data consists of sequences of values measured at _successive points_ in time, such as _stock prices_, _sensor readings_, or _weather data_.
@@ -65,10 +65,78 @@ The main types of data used in training are _structured_ and _unstructured_ data
       - The data consists only of input features, without any corresponding output or classification.
       - **Example**: A collection of images without any labels or annotations.
 
+### Machine Learning Process
+
+After the ETL (extract-transform-load) step, a subset of data is compiled into a **training set** - that data on which the learning happens.
+
+- In **supervised learning**, the algorithms are _trained_ on _labeled data_. The goal is to **learn** a **mapping function** that can **predict** the output for new, unseen input data.
+- **Unsupervised learning** refers to algorithms that **learn** _from_ **unlabeled data**. The **goal** is to _discover_ **inherent patterns**, **structures**, or **relationships** within the input data.
+- In **reinforcement learning**, the machine is fed with a _portion_ of labeled training data. A **performance score** is given to the machine as **guidance** - it is form of **semi-supervised learning**. The **feedback** is _provided_ in the form of **rewards** or **penalties** for its _actions_, and the machine learns from this feedback to improve its decision-making over time.
+
+**Inferencing** is the next step in the process. A model is now fed **test data** to validate the learnings, its ability to make predictions and/or decisions.
+
+- **Batch inferencing** is when the machine takes a large amount of data, such as images or text, and analyzes it all at once to provide a set of results.
+  - This type of inferencing is often used for tasks like data analysis, where the speed of the decision-making process is not as crucial as the accuracy of the results.
+- **Real-time inferencing** is when the computer has to make decisions quickly, in response to new information as it comes in.
+  - This is important for applications where immediate decision-making is critical, such as in _chatbots_ or _self-driving cars_.
+
+<br>
+
 ---
 
-<a id="features"></a>
-**Features**
+<br>
 
-<a id="labels"></a>
-**Labels**
+## Deep Learning Fundamentals
+
+The field of **deep learning** is inspired by the **structure** and **function** of the **_brain_**. It involves the _use_ of **artificial neural networks**, which are computational models that are designed to _mimic_ the way the **_human brain_** processes information.
+
+### Neural Networks
+
+Neural networks mimic our brains. The _neurons_ that are connected to each other, map to tiny units called **nodes**, that are connected together.
+
+These nodes are **organized** into **layers**. The layers include an **input layer**, **one or more hidden layers**, and **an output layer**.
+
+**How information is passed:**
+
+- The **input layer** receives the _features_. For example, a typical set of features that a customer can have are - _age_, _purchase history_, or _app usage_.
+- This information is sent to the **hidden layers**.
+- **Each connection** has a **weight** marking its _importance_.
+- Each node _combines_ the inputs it receives, performs a action - calculation, and passes the result forward.
+- Finally, the **output layer** gives the _prediction_, like "likely to buy" or "unlikely to buy".
+
+**During training, one more step happens:**
+
+- The **network** _checks_ the accuracy of its prediction, determining the closeness to the real answer.
+- Then it **adjusts** the **weights** in the **connections**.
+- This helps it make better predictions next time.
+
+**Computer Vision** a field of artificial intelligence that makes it possible for computers to interpret and understand digital images and videos. Deep learning has provided powerful techniques for achieving tasks such as _image classification_, _object detection_, and _image segmentation_.
+
+**Natural Language Processing** a branch of artificial intelligence that deals with the interaction between computers and human languages. Deep learning has enabled achievement of tasks such as _text classification_, _sentiment analysis_, _machine translation_, and _language generation_.
+
+<br>
+
+---
+
+<br>
+
+### References
+
+<a id="features-and-lables"></a>
+**Features and Labels**
+
+- **Features** are the input information the model uses to learn.
+- **Labels** are the correct answers it’s trying to predict.
+
+| Size (sq ft) | Bedrooms | Location Score | Price  |
+| ------------ | -------- | -------------- | ------ |
+| 1200         | 2        | 7              | 200000 |
+| 1800         | 3        | 8              | 320000 |
+| 2500         | 4        | 9              | 500000 |
+
+In this example:
+
+- features: `Size`, `Bedrooms`, `Location Score`
+- label: `Price`
+
+So the model looks at the **features** and _learns_ to **predict** the **label**.
